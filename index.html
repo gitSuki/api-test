@@ -6,15 +6,19 @@
     
 </head>
 <body>
+    <input type="text" value="cats">
     <button>Click me to change the GIF</button>
     <img src="#">
     <script>
         const API_KEY = 'U1AcoV0LydlsfjQH4T72RS3cgccXjGh2'
         const IMG = document.querySelector("img")
         const BUTTON = document.querySelector("button")
+        const INPUT = document.querySelector("input")
+        let searchTerm = INPUT.value
 
         function fetchGif() {
-            fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${API_KEY}&s=cats`, {mode: `cors`})
+            searchTerm = INPUT.value
+            fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${API_KEY}&s=${searchTerm}`, {mode: `cors`})
             .then( response => {
                 // the fetch request returns a promise
                 // console.log(response)
